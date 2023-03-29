@@ -1,0 +1,12 @@
+<div class="flex justify-evenly w-600 max-w-[600px] mb-5">
+  <div class="w-full">
+    <label for="versicherte">Kundensuche</label>
+    <input #kundenauswahl autocomplete="off" type="text" list="kunden">
+    <datalist id="kunden" role="listbox">
+      <option *ngFor="let item of versicherte" [value]="item.id">{{ item.vorname + ' ' + item.nachname }}</option>
+    </datalist>
+  </div>
+  <div class="w-full flex" style="align-items: flex-end; margin-left: .5rem;">
+    <button (click)="selectKunde(kundenauswahl.value)">Auswählen</button>
+  </div>
+</div>

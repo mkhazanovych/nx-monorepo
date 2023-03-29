@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@drv/shared/services": ["libs/shared/services/src/index.ts"],
+      "@drv/shared/types": ["libs/shared/types/src/index.ts"],
+      "@drv/shared/ui/kunden-profil": [
+        "libs/shared/ui/kunden-profil/src/index.ts"
+      ],
+      "@drv/shared/ui/kundensuche": ["libs/shared/ui/kundensuche/src/index.ts"],
+      "@drv/shell/footer": ["libs/shell/footer/src/index.ts"],
+      "@drv/shell/header": ["libs/shell/header/src/index.ts"],
+      "@drv/workspace-extensions": ["libs/workspace-extensions/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

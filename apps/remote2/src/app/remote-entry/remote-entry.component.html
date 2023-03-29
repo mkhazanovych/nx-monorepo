@@ -1,0 +1,9 @@
+<h1>Remote 2</h1>
+<drv-kunden-profil [kunde]="kunde"></drv-kunden-profil>
+<div class="box">
+  <h2>Service</h2>
+  <drv-kundensuche (kundenEmitter)="setKunde($event)" [versicherte]="versicherte"></drv-kundensuche>
+</div>
+<div *ngIf="kundenID" class="box">
+  <h3>ID:{{ kundenID }} </h3>von Remote 1
+</div>

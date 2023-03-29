@@ -1,0 +1,11 @@
+<div style="max-width: 800px;">
+  <div class="bg-gray-200 p-5">
+    <div *ngIf="kunde else unselected">
+      <small>Kunde bearbeiten:</small>
+      <h3>{{ kunde.vorname }} {{ kunde.nachname }} <small>{{ kunde.id }}</small></h3>
+    </div>
+    <ng-template #unselected>
+      kein Kunde ausgewählt
+    </ng-template>
+  </div>
+</div>

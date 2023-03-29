@@ -1,0 +1,12 @@
+<h1>Remote 1</h1>
+<drv-kunden-profil [kunde]="kunde"></drv-kunden-profil>
+<div class="box">
+  <h2>Service</h2>
+  <div>
+  <drv-kundensuche (kundenEmitter)="setKunde($event)" [versicherte]="versicherte"></drv-kundensuche>
+  </div>
+</div>
+<div class="box">
+  <h2>QueryParams</h2>
+  <button style="max-width: 400px;" (click)="goToRemote2('111-45')">Daten an Remote2 senden</button>
+</div>

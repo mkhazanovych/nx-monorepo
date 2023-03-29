@@ -1,0 +1,18 @@
+<div class="h-full flex flex-col">
+  <drv-header></drv-header>
+  <div class="h-full overflow-hidden">
+    <div class="h-full w-full flex">
+      <div class="w-0 md:w-[300px] overflow-y-scroll bg-gray-100">
+        <ul class="remote-menu pt-5">
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="remote1">Remote1</a></li>
+          <li><a routerLink="remote2">Remote2</a></li>
+        </ul>
+      </div>
+      <div class="w-full p-5 overflow-y-scroll">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  <drv-footer></drv-footer>
+</div>
