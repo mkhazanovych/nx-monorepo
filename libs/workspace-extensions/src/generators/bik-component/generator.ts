@@ -79,6 +79,4 @@ export default async function (tree: Tree, options: BikComponentGeneratorSchema)
   await addFiles(tree, normalizedOptions);
   await formatFiles(tree);
 
-
-  
 }
