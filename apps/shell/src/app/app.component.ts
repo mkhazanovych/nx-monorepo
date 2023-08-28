@@ -1,8 +1,8 @@
-import {Component, EnvironmentInjector, inject, InjectionToken, Injector, OnInit} from '@angular/core';
+import {ApplicationRef, Component, EnvironmentInjector, inject, InjectionToken, Injector, OnInit} from '@angular/core';
 import {loadRemoteModule} from "@nrwl/angular/mf";
 import { Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import {NgElement, WithProperties} from "@angular/elements";
+import {NgElement, NgElementConstructor, WithProperties} from "@angular/elements";
 
 
 @Component({
@@ -13,16 +13,16 @@ import {NgElement, WithProperties} from "@angular/elements";
 export class AppComponent implements OnInit{
   title = 'shell';
 
-  constructor (@Inject(DOCUMENT) private document: Document, private environmentInjector: EnvironmentInjector, private injector: Injector) {
+  constructor (@Inject(DOCUMENT) private document: Document, private environmentInjector: EnvironmentInjector, private injector: Injector, private applicationRef: ApplicationRef) {
   }
 
   ngOnInit(): void {
     loadRemoteModule('remote1', './Module').then(
-      (m) => m.defineWebComponents).then((res) => {
-      res(this.injector);
-      const wc = this.document.createElement('remote1-widget-wc') as NgElement & WithProperties<{ parameter: string }>;
-      document.getElementById("remote1-widget")?.appendChild(wc);
-      return undefined;
+      (m) => m.defineWebComponent).then((res) => res(this.applicationRef.injector, document.getElementById("remote1-widget")))
+      .then((componentRef) => {
+        this.applicationRef.attachView(componentRef.hostView);
+        componentRef.instance.message = "use in portal";
+        return undefined;
     })
   }
 
