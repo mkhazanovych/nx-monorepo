@@ -1,16 +1,17 @@
 import { EntryComponent } from './entry/entry.component';
 import { Route } from '@angular/router';
+import {loadRemoteModule} from "@nrwl/angular/mf";
 
 export const appRoutes: Route[] = [
   {
     path: 'remote2',
     loadChildren: () =>
-      import('remote2/Module').then((m) => m.RemoteEntryModule),
+      loadRemoteModule('remote2', './Module').then((m) => m.RemoteEntryModule),
   },
   {
     path: 'remote1',
     loadChildren: () =>
-      import('remote1/Module').then((m) => m.RemoteEntryModule),
+      loadRemoteModule('remote1', './Module').then((m) => m.RemoteEntryModule),
   },
   {
     path: '',

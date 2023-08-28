@@ -2,7 +2,15 @@
   "name": "drv",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start:shell": "nx run shell:serve",
+    "start:remote1": "nx run remote1:serve",
+    "start:remote2": "nx run remote2:serve",
+    "build:shell": "nx run shell:build:production",
+    "build:remote1": "nx run remote1:build:production",
+    "build:remote2": "ng run remote2:build:production",
+    "start": "concurrently \"npm run start:shell\" \"npm run start:remote1\" \"npm run start:remote2\" "
+  },
   "private": true,
   "devDependencies": {
     "@angular-devkit/build-angular": "~15.2.0",
@@ -32,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "autoprefixer": "^10.4.0",
+    "concurrently": "^8.0.1",
     "cypress": "^12.2.0",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
@@ -57,6 +66,7 @@
     "@angular/common": "~15.2.0",
     "@angular/compiler": "~15.2.0",
     "@angular/core": "~15.2.0",
+    "@angular/elements": "^16.2.2",
     "@angular/forms": "~15.2.0",
     "@angular/platform-browser": "~15.2.0",
     "@angular/platform-browser-dynamic": "~15.2.0",

@@ -100,7 +100,8 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "remote2:build",
-        "port": 4202
+        "port": 4202,
+        "cors": false
       },
       "configurations": {
         "development": {
