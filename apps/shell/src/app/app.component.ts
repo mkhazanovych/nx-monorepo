@@ -12,6 +12,7 @@ import {NgElement, NgElementConstructor, WithProperties} from "@angular/elements
 })
 export class AppComponent implements OnInit{
   title = 'shell';
+  clicked = 0;
 
   constructor (@Inject(DOCUMENT) private document: Document, private environmentInjector: EnvironmentInjector, private injector: Injector, private applicationRef: ApplicationRef) {
   }
@@ -22,8 +23,17 @@ export class AppComponent implements OnInit{
       .then((componentRef) => {
         this.applicationRef.attachView(componentRef.hostView);
         componentRef.instance.message = "use in portal";
+        componentRef.instance.clicked.subscribe(() => {
+          this.clicked++;
+        });
         return undefined;
     })
   }
+
+  get clickNumber(): string {
+    return '' + this.clicked;
+  }
+
+
 
 }
